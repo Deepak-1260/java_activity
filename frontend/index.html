@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radius Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Radius Explorer</div>
+        <ul class="nav-links">
+            <li><a href="#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="#calculate" onclick="showSection('calculate')">Calculate Radius</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="tab-content">
+        <h3>Welcome to Radius Explorer - your go-to tool for calculating the radius from diameter, area, or circumference.</h3>
+        <p>The circle is an amazing shape! Ready to calculate and conquer? Sign up now and begin your journey with Radius Explorer!</p>
+        <div class="buttons">
+            <button id="signinBtn">Sign In</button>
+            <button id="signupBtn">Sign Up</button>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        <div class="modal" id="modal">
+            <h2 id="modalTitle"></h2>
+            <div id="formContainer">
+                <!-- Sign In Form -->
+                <form id="signInForm" class="authForm">
+                    
+
+                    <label for="signInEmail">Email:</label>
+                    <input type="email" id="signInEmail" required>
+                    <label for="signInPassword">Password:</label>
+                    <input type="password" id="signInPassword" required>
+                    <button type="submit">Sign In</button>
+                </form>
+                <!-- Sign Up Form -->
+                <form id="signUpForm" class="authForm">
+                    
+
+                    <label for="signUpEmail">Email:</label>
+                    <input type="email" id="signUpEmail" required>
+                    <label for="signUpPassword">Password:</label>
+                    <input type="password" id="signUpPassword" required>
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+            <button class="close-btn" id="closeModal">Close</button>
+        </div>
+        <div id="res"></div>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide"><img src="https://cdn1.byjus.com/wp-content/uploads/2020/09/Parts-of-circle.png" alt="Parts of circle 1"></div>
+                <div class="slide"><img src="https://cdn.dribbble.com/users/2266184/screenshots/6342545/2_in_1_2x.jpg" alt="Parts of circle 2"></div>
+                <div class="slide"><img src="https://www.aboutmanchester.co.uk/wp-content/uploads/2022/08/Radius-Logo-and-Wave.jpg" alt="Parts of circle 3"></div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)"><</button>
+            <button class="next" onclick="changeSlide(1)">></button>
+        </div>
+        <div class="facts-container">
+            <div class="fact">A circle is a shape with all points equidistant from its center.</div>
+            <div class="fact">A circle has infinite lines of symmetry that pass through its center.</div>
+            <div class="fact">Circles appear in nature everywhere, from the shape of the sun and moon to ripples in water.</div>
+            <div class="fact">The term "radius" comes from the Latin word for "ray" or "spoke of a wheel."</div>
+            <div class="fact">The ratio of a circle's circumference to its diameter is a constant π(pi), approximately 3.14159</div>
+        </div>
+    </section>
+
+    <!-- Calculate Radius Section -->
+    <section id="calculate" class="tab-content">
+        <h1>Calculate the Radius</h1>
+        <form id="radiusForm">
+            <label for="dataType">Choose Data <span id="ast">*</span></label>
+            <select id="dataType" required>
+                <option value="">--Select an Option--</option>
+                <option value="diameter">Diameter</option>
+                <option value="circumference">Circumference</option>
+                <option value="area">Area</option>
+                <option value="area-angle">Area & Angle</option>
+                <option value="sector-area">Area of Sector & Angle</option>
+            </select>
+            <div id="valueInput"></div>
+
+            <label for="hobby">Choose your field of interest</label>
+            <select id="hobby">
+                <option value="">--Select a Hobby--</option>
+                <option value="reading">Cricket</option>
+                <option value="coding">Foodie</option>
+                <option value="traveling">Traveling</option>
+                
+            </select>
+
+            <button type="submit" id="findRadius">Find Radius</button>
+        </form>
+        <div id="result"></div>
+    </section>
+
+    <script src="script.js"></script>
+    <!-- <script>
+        let currentSlide = 0;
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            document.querySelector('.slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto-slide functionality (optional)
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script> -->
+</body>
+</html>
